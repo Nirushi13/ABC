@@ -1,0 +1,70 @@
+.admin-reservations {
+    padding: 30px;
+    background-color: #f0f2f5; 
+}
+.admin-reservations table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #fff; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+.admin-reservations th {
+    background-color: #1e88e5; 
+    color: #fff; 
+    padding: 12px; 
+    text-align: left; 
+    border-bottom: 2px solid #ddd; 
+}
+.admin-reservations td {
+    padding: 12px; 
+    border-bottom: 1px solid #ddd; 
+}
+.admin-reservations tr:hover {
+    background-color: #f5f5f5; 
+  }
+  
+  /* Button styling */
+  .admin-reservations button {
+    padding: 8px 12px; /* Button padding */
+    margin-right: 5px; /* Space between buttons */
+    border: none;
+    border-radius: 5px; /* Rounded corners for buttons */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 14px; /* Font size for button text */
+    transition: background-color 0.3s ease; /* Smooth transition */
+  }
+  
+  /* Approve button */
+  .admin-reservations button:nth-child(1) {
+    background-color: #4caf50; /* Green background for approve */
+    color: #fff; /* White text */
+  }
+  
+  /* Approve button hover effect */
+  .admin-reservations button:nth-child(1):hover {
+    background-color: #388e3c; /* Darker green on hover */
+  }
+  
+ 
+  .admin-reservations button:nth-child(2) {
+    background-color: #f44336;
+    color: #fff; 
+  }
+  
+  /* Reject button hover effect */
+  .admin-reservations button:nth-child(2):hover {
+    background-color: #d32f2f; /* Darker red on hover */
+  }
+  
+  /* Responsive styling for mobile */
+  @media (max-width: 768px) {
+    .admin-reservations {
+      padding: 15px; /* Reduced padding for smaller screens */
+    }
+  
+    .admin-reservations table {
+      font-size: 14px; /* Smaller font size for smaller screens */
+    }
+  }
+  

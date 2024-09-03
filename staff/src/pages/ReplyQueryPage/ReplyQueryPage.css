@@ -1,0 +1,49 @@
+/* ReplyQueryPage.css */
+.reply-query-container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .query-details {
+    margin-bottom: 20px;
+    font-size: 16px;
+  }
+  
+  .query-details p {
+    margin: 10px 0;
+    color: #333;
+  }
+  
+  .query-details p strong {
+    color: #007bff;
+  }
+  
+  .reply-section textarea {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    resize: none;
+  }
+  
+  .reply-section button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .reply-section button:hover {
+    background-color: #45a049;
+  }
+  
