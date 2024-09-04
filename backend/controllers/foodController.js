@@ -25,17 +25,31 @@ const addFood= async(req,res)=>{
     }
 }
 
-//get all foods
-const listFood= async(req,res)=>{
+// Get all foods with optional search
+const listFood = async (req, res) => {
+    const { search } = req.query; 
+
     try {
-        const foods=await foodModel.find({});
-        res.json({success:true,data:foods})
+        let query = {};
+        
+        if (search) {
+            query = {
+                $or: [
+                    { name: { $regex: search, $options: 'i' } },        
+                    { category: { $regex: search, $options: 'i' } },     
+                    { description: { $regex: search, $options: 'i' } } 
+                ]
+            };
+        }
+
+        const foods = await foodModel.find(query); 
+        res.json({ success: true, data: foods });
     } catch (error) {
         console.log(error);
-        res.json({success:false,message:"Error"})
+        res.json({ success: false, message: "Error" });
     }
+};
 
-}
 
 //delete foods
 const deleteFood= async(req,res)=>{

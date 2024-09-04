@@ -12,11 +12,11 @@ const Sidebar = () => {
           <p>Orders</p>
         </NavLink>
         <NavLink to="/queries" className="sidebar-option" activeClassName="active">
-          <img src={assets.add_icon} alt="Queries" />
+          <img src={assets.query} alt="Queries" />
           <p>Queries</p>
         </NavLink>
         <NavLink to="/reserve" className="sidebar-option" activeClassName="active">
-          <img src={assets.add_icon} alt="Reservations" />
+          <img src={assets.reserve} alt="Reservations" />
           <p>Reservations</p>
         </NavLink>
         </div>
