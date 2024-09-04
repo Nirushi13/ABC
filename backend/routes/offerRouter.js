@@ -1,7 +1,7 @@
 import express from 'express';
 import multer from 'multer';
 import path from 'path';
-import { createOffer, getAllOffers, getOfferById, updateOffer, deleteOffer } from '../controllers/offerController.js';
+import { createOffer, getAllOffers, deleteOffer } from '../controllers/offerController.js';
 
 // Multer configuration
 const storage = multer.diskStorage({
@@ -21,8 +21,6 @@ const router = express.Router();
 
 router.post('/', upload.single('image'), createOffer); // 'image' is the field name in the form
 router.get('/', getAllOffers);
-router.get('/:id', getOfferById);
-router.put('/:id', updateOffer);
 router.delete('/:id', deleteOffer);
 
 export default router;

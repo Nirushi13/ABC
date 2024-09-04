@@ -11,6 +11,7 @@ import MyOrders from './pages/MyOrders/MyOrders';
 import { ToastContainer } from 'react-toastify';
 import AboutUs from './pages/AboutUs/AboutUs';
 import ReservationForm from './components/ReservationForm/ReservationForm';
+import FoodSearch from './components/FoodSearch/FoodSearch.jsx';
 
 
 
@@ -31,6 +32,7 @@ function App() {
         <Route path='/myorders' element={<MyOrders/>}/>
         <Route path='/about' element={<AboutUs/>}/>
         <Route path="/reservation" element={<ReservationForm />} />
+        <Route path="/search" element={<FoodSearch />} />
       </Routes>
     </div>
     <Footer/>

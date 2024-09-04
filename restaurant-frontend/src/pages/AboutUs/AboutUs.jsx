@@ -3,6 +3,7 @@ import './AboutUs.css'
 import FoodDisplay from '../../components/FoodDisplay/FoodDisplay';
 import QueryForm from '../../components/QueryForm/QueryForm'
 import UserOffersPage from '../../components/Offer/UserOffersPage';
+import { assets } from '../../assets/assets';
 
 const AboutUs = () => {
   return (
@@ -30,9 +31,23 @@ const AboutUs = () => {
 
       <section className="team-section">
         <h2>Meet Our Team</h2>
-        <p>
-          Our team of experienced chefs and friendly staff are dedicated to providing you with the best dining experience. From the kitchen to your table, we work together to ensure every meal is perfect.
-        </p>
+        <div className="team-cards">
+          <div className="card">
+            <img src={assets.chief1} alt="Chef 1" />
+            <h3>Chef John Doe</h3>
+            <p>Head Chef</p>
+          </div>
+          <div className="card">
+            <img src={assets.chief2} alt="Chef 2" />
+            <h3>Chef Jane Smith</h3>
+            <p>Pastry Chef</p>
+          </div>
+          <div className="card">
+            <img src={assets.chief3} alt="Chef 3" />
+            <h3>Chef Mark Brown</h3>
+            <p>Sous Chef</p>
+          </div>
+        </div>
       </section>
 
       <section className="offer-section">

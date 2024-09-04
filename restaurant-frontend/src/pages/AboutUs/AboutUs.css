@@ -39,6 +39,38 @@
 .food-display-section, .query-form-section {
     padding: 40px 20px;
 }
+.team-cards {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+  }
+  
+  .card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    width: 30%;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card img {
+    width: 100%;
+    height: auto;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .card h3 {
+    margin: 10px 0;
+    font-size: 1.2em;
+  }
+  
+  .card p {
+    color: #777;
+    margin-bottom: 10px;
+  }
+  
 @media (max-width: 768px) {
     .hero-content h1 {
       font-size: 2rem;
