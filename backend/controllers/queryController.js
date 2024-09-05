@@ -45,7 +45,6 @@ export const replyToQuery = async (req, res) => {
         pass: process.env.EMAIL_PASS
       }
     });
-
     // Send the email response
     await transporter.sendMail({
       to: query.email,

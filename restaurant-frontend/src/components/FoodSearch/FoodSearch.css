@@ -1,0 +1,47 @@
+.food-search {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.food-search h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.food-search input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+.food-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.food-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    width: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.food-card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+}
+.food-card h3 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+.food-card p {
+    margin: 5px 0;
+}
+.food-card p:last-of-type {
+    font-weight: bold;
+}
+    

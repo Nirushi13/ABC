@@ -45,12 +45,35 @@ const AdminReservations = () => {
     }
   };
 
+    // Function to download the report
+    const downloadReport = async () => {
+      try {
+        const response = await axios.get('http://localhost:4000/api/reservations/report',
+           {
+          responseType: 'blob',
+        });
+        
+        const url = window.URL.createObjectURL(new Blob([response.data]));
+        const link = document.createElement('a');
+        link.href = url;
+        link.setAttribute('download', 'reservations_report.csv');
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+      } catch (error) {
+        console.error('Error downloading report:', error);
+      }
+    };
+
   if (loading) return <div>Loading...</div>;
   if (error) return <div>{error}</div>;
 
   return (
     <div className="admin-reservations">
       <h2>Admin - Manage Reservations</h2>
+      <button className="download-button" onClick={downloadReport}>
+        <i className="fas fa-download"></i> Download Report
+      </button>
       <table>
         <thead>
           <tr>
