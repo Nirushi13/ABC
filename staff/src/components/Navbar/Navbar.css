@@ -11,3 +11,9 @@
 .navbar .profile{
     width: 40px;
 }
+.navbar-title {
+    font-size: 18px; 
+    font-weight: bold; 
+    color: #cd3e3e; 
+    margin: 0 20px; 
+}
