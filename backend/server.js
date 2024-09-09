@@ -10,6 +10,7 @@ import queryRouter from "./routes/queryRoute.js";
 import offerRouter from "./routes/offerRouter.js";
 import reservationRouter from "./routes/reservationRouter.js";
 import galleryRouter from './routes/galleryRoutes.js';
+import adminRoute from './routes/adminRoute.js'
 
 // App configuration
 const app = express();
@@ -32,6 +33,7 @@ app.use("/api/query",queryRouter)
 app.use("/api/offer", offerRouter);
 app.use("/api/reservations",reservationRouter);
 app.use("/api/gallery", galleryRouter);
+app.use("/api/admin",adminRoute);
 
 
 
