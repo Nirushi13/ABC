@@ -12,6 +12,7 @@ import ReplyQueryPage from './pages/ReplyQueryPage/ReplyQueryPage'
 import AdminManageOffers from './pages/ManageOffer/AdminManageOffers'
 import AdminReservations from './pages/AdminReservations/AdminReservations'
 import GalleryAdmin from './pages/GalleryAdmin/GalleryAdmin'
+import Dashboard from './pages/Dashboard/Dashboard'
 
 const App = () => {
 
@@ -33,6 +34,7 @@ const App = () => {
           <Route path="/offers" element={<AdminManageOffers url={url}/>}/>
           <Route path='/reserve' element= {<AdminReservations url={url}/>}/>
           <Route path='/gallery' element={<GalleryAdmin url={url}/>}/>
+          <Route path='/dashboard' element={<Dashboard url={url}/>}/>
         </Routes>
       </div>
     </div>

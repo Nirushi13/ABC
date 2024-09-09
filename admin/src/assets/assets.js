@@ -9,6 +9,8 @@ import offer from './offer.png'
 import gallery from './gallery.png'
 import reserve from './reserve.png'
 import query from './query.png'
+import dashboard from './dashboard.jpg'
+
 
 export const assets ={
     logo,
@@ -21,7 +23,8 @@ export const assets ={
     offer,
     gallery,
     reserve,
-    query
+    query,
+    dashboard
 }
 
 export const url = 'http://localhost:4000'
