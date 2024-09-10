@@ -1,0 +1,131 @@
+/* Container for the entire staff management page */
+.admin-staff-manage {
+    font-family: Arial, sans-serif;
+    padding: 30px;
+    max-width: 1200px;
+    margin: auto;
+  }
+  
+  /* Title of the staff management page */
+  .admin-staff-manage__title {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+  }
+  
+  /* Error message displayed in case of errors */
+  .admin-staff-manage__error-message {
+    color: red;
+    margin-bottom: 20px;
+    font-size: 16px;
+    text-align: center;
+  }
+  
+  /* Form for adding new staff members */
+  .admin-staff-manage__form {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+  }
+  
+  /* Form header */
+  .admin-staff-manage__form h3 {
+    margin-bottom: 20px;
+    font-size: 20px;
+    color: #444;
+    text-align: center;
+  }
+  
+  /* Form input fields */
+  .admin-staff-manage__form input {
+    display: block;
+    width: calc(100% - 22px); /* Adjusting width to account for padding */
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+  }
+  
+  /* Input focus styling */
+  .admin-staff-manage__form input:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
+  
+  /* Buttons in the form */
+  .admin-staff-manage__action-button,
+  .admin-staff-manage__delete-button {
+    display: inline-block;
+    padding: 12px 20px;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s ease;
+    margin: 0 10px;
+  }
+  
+  /* Add staff button */
+  .admin-staff-manage__action-button {
+    background-color: #28a745;
+  }
+  
+  .admin-staff-manage__action-button:hover {
+    background-color: #218838;
+  }
+  
+  /* Delete button */
+  .admin-staff-manage__delete-button {
+    background-color: #dc3545;
+  }
+  
+  .admin-staff-manage__delete-button:hover {
+    background-color: #c82333;
+  }
+  
+  /* Table styles */
+  .admin-staff-manage__table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  /* Table header */
+  .admin-staff-manage__table-header {
+    background-color: #007bff;
+    color: white;
+    text-align: left;
+  }
+  
+  .admin-staff-manage__table-header th {
+    padding: 12px;
+    font-size: 16px;
+  }
+  
+  /* Table rows and cells */
+  .admin-staff-manage__table-row:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .admin-staff-manage__table-row:nth-child(odd) {
+    background-color: #ffffff;
+  }
+  
+  .admin-staff-manage__table-cell {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    font-size: 16px;
+  }
+  
+  /* Table actions */
+  .admin-staff-manage__table-cell button {
+    margin: 0 5px;
+  }
+  

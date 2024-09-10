@@ -14,6 +14,8 @@ import AdminReservations from './pages/AdminReservations/AdminReservations';
 import GalleryAdmin from './pages/GalleryAdmin/GalleryAdmin';
 import Dashboard from './pages/Dashboard/Dashboard';
 import Login from './pages/Login/Login.jsx';
+import UserManage from './pages/UserManage/UserManage.jsx';
+import StaffManage from './pages/StaffManage/StaffManage.jsx'
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false); // Login state
@@ -64,6 +66,14 @@ const App = () => {
           <Route
             path="/gallery"
             element={isLoggedIn ? <GalleryAdmin url={url} /> : <Navigate to="/login" />}
+          />
+           <Route
+            path="/usermanage"
+            element={isLoggedIn ? <UserManage url={url} /> : <Navigate to="/login" />}
+          />
+          <Route
+            path="/staff"
+            element={isLoggedIn ? <StaffManage url={url} /> : <Navigate to="/login" />}
           />
           <Route
             path="/dashboard"
