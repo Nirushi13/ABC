@@ -11,6 +11,8 @@ import offerRouter from "./routes/offerRouter.js";
 import reservationRouter from "./routes/reservationRouter.js";
 import galleryRouter from './routes/galleryRoutes.js';
 import adminRoute from './routes/adminRoute.js'
+import adminRoutes from './routes/adminRoutes.js'
+import staffRoutes from './routes/staffRoute.js'
 
 // App configuration
 const app = express();
@@ -34,6 +36,8 @@ app.use("/api/offer", offerRouter);
 app.use("/api/reservations",reservationRouter);
 app.use("/api/gallery", galleryRouter);
 app.use("/api/admin",adminRoute);
+app.use("/api/admins",adminRoutes)
+app.use("/api/staff",staffRoutes)
 
 
 

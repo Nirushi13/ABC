@@ -1,0 +1,79 @@
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(to right, #ff4e50, #e53a3a); /* Updated red gradient */
+    font-family: 'Arial', sans-serif;
+  }
+  .admin{
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    width: 350px;
+    max-width: 100%;
+  }
+  
+  .label {
+    font-size: 1.1rem;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+  
+  .input {
+    width: 100%;
+    padding: 10px 15px;
+    margin-bottom: 1.5rem;
+    border-radius: 8px;
+    border: none;
+    background: rgba(255, 255, 255, 0.3);
+    color: #fff;
+    font-size: 1rem;
+  }
+  
+  .input:focus {
+    outline: none;
+    border: 2px solid #e53a3a; /* Changed to match the gradient */
+    background: rgba(255, 255, 255, 0.5);
+  }
+  
+  .admin-btn {
+    width: 100%;
+    background-color: #ffffff;
+    color: #ff4e50; /* Updated to match the red theme */
+    border: none;
+    padding: 12px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .admin-btn:hover {
+    background-color: #f9d423; /* Updated hover color */
+    color: #ff4e50;
+  }
+  
+  @media only screen and (max-width: 768px) {
+    .login-container {
+      padding: 1rem;
+    }
+  
+    .adminform {
+      width: 100%;
+      padding: 1.5rem;
+    }
+  
+    .input {
+      font-size: 0.9rem;
+    }
+  
+    .admin-btn {
+      font-size: 1rem;
+    }
+  }
+  

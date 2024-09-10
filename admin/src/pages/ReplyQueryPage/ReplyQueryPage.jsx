@@ -48,9 +48,11 @@ const ReplyQueryPage = ({ url }) => {
       <div className="reply-section">
         <textarea
           rows="5"
+          required
           value={response}
           onChange={(e) => setResponse(e.target.value)}
           placeholder="Write your reply here..."
+          
         />
         <button onClick={handleReplySubmit}>Send Reply</button>
       </div>

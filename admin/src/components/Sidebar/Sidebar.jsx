@@ -39,6 +39,14 @@ const Sidebar = () => {
           <img src={assets.gallery} alt="Gallery" />
           <p>Gallery</p>
         </NavLink>
+        <NavLink to="/usermanage" className="sidebar-option" activeClassName="active">
+          <img src={assets.add_icon} alt="user" />
+          <p>UserManage</p>
+        </NavLink>
+        <NavLink to="/staff" className="sidebar-option" activeClassName="active">
+          <img src={assets.add_icon} alt="staff" />
+          <p>StaffManage</p>
+        </NavLink>
       </div>
     </div>
   );
