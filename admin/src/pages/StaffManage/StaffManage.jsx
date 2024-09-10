@@ -2,9 +2,10 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './StaffManage.css';
 
-const StaffManage = ({url}) => {
+const StaffManage = ({ url }) => {
   const [staff, setStaff] = useState([]);
   const [error, setError] = useState('');
+  const [editId, setEditId] = useState(null);  // To track which staff is being edited
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -15,7 +16,7 @@ const StaffManage = ({url}) => {
 
   const fetchStaff = async () => {
     try {
-      const response = await axios.get(url+'/api/staff/all');
+      const response = await axios.get(url + '/api/staff/all');
       setStaff(response.data.staff);
     } catch (error) {
       setError('Error fetching staff members');
@@ -24,7 +25,7 @@ const StaffManage = ({url}) => {
 
   const handleAddStaff = async () => {
     try {
-      const response = await axios.post(url+'/api/staff/add', { name, email, password });
+      const response = await axios.post(url + '/api/staff/add', { name, email, password });
       if (response.data.success) {
         fetchStaff();  // Refresh staff list
         setName('');
@@ -39,24 +40,49 @@ const StaffManage = ({url}) => {
     }
   };
 
-  const handleUpdateStaff = async (id) => {
-    // Implement update logic here
+  const handleEditStaff = (staffMember) => {
+    setEditId(staffMember._id);
+    setName(staffMember.name);
+    setEmail(staffMember.email);
+    setPassword(''); // Password will not be pre-filled
+  };
+
+  const handleUpdateStaff = async () => {
+    try {
+      const response = await axios.put(`${url}/api/staff/update/${editId}`, {
+        name,
+        email,
+        password: password || undefined,  // Only update password if it's not empty
+      });
+
+      if (response.data.success) {
+        setEditId(null);  // Close the edit form
+        fetchStaff();  // Refresh the list
+      } else {
+        setError(response.data.message);
+      }
+    } catch (error) {
+      setError('Error updating staff member');
+    }
   };
 
   const handleDeleteStaff = async (id) => {
     try {
       const response = await axios.delete(`${url}/api/staff/delete/${id}`);
+      
       if (response.data.success) {
-        alert('Staff Deleted Successfully')
-        fetchStaff();  
+        alert('Staff Deleted Successfully');
+        fetchStaff(); 
       } else {
-        setError(response.data.message);
+        console.error('Error from server:', response.data.message);  // Log the backend error message
+        setError(response.data.message);  // Set error message if deletion fails
       }
     } catch (error) {
-      setError('Error deleting staff member');
+      console.error('Error deleting staff:', error);  // Log the exact error
+      setError('Error deleting staff member');  // Set a user-friendly error message
     }
   };
-
+  
   return (
     <div className="admin-staff-manage">
       <h2 className="admin-staff-manage__title">Manage Staff Members</h2>
@@ -64,7 +90,7 @@ const StaffManage = ({url}) => {
       {error && <div className="admin-staff-manage__error-message">{error}</div>}
 
       <div className="admin-staff-manage__form">
-        <h3>Add New Staff Member</h3>
+        <h3>{editId ? 'Update Staff Member' : 'Add New Staff Member'}</h3>
         <input
           type="text"
           placeholder="Name"
@@ -83,9 +109,15 @@ const StaffManage = ({url}) => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button className="admin-staff-manage__action-button" onClick={handleAddStaff}>
-          Add Staff
-        </button>
+        {editId ? (
+          <button className="admin-staff-manage__action-button" onClick={handleUpdateStaff}>
+            Save Changes
+          </button>
+        ) : (
+          <button className="admin-staff-manage__action-button" onClick={handleAddStaff}>
+            Add Staff
+          </button>
+        )}
       </div>
 
       <table className="admin-staff-manage__table">
@@ -106,7 +138,7 @@ const StaffManage = ({url}) => {
               <td className="admin-staff-manage__table-cell">
                 <button
                   className="admin-staff-manage__action-button"
-                  onClick={() => handleUpdateStaff(staffMember._id)}
+                  onClick={() => handleEditStaff(staffMember)}
                 >
                   Update
                 </button>

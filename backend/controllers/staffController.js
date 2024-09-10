@@ -94,7 +94,7 @@ export const deleteStaff = async (req, res) => {
             return res.status(404).json({ success: false, message: 'Staff member not found' });
         }
 
-        await staff.remove();
+        await Staff.findByIdAndDelete(id);
         res.json({ success: true, message: 'Staff member deleted successfully' });
     } catch (error) {
         console.error('Error deleting staff member:', error);

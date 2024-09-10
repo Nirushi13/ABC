@@ -2,15 +2,15 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import { Link } from 'react-router-dom';
-import './QueriesPage.css'
+import './QueriesPage.css';
 
-const QueriesPage = ({url}) => {
+const QueriesPage = ({ url }) => {
   const [queries, setQueries] = useState([]);
 
   useEffect(() => {
     const fetchQueries = async () => {
       try {
-        const response = await axios.get(url+"/api/query/get");
+        const response = await axios.get(url + "/api/query/get");
         setQueries(response.data);
       } catch (error) {
         toast.error('Failed to fetch queries');
@@ -18,12 +18,35 @@ const QueriesPage = ({url}) => {
     };
 
     fetchQueries();
-  }, []);
+  }, [url]);
+
+  // Function to download the report
+  const downloadReport = async () => {
+    try {
+      const response = await axios.get(url + '/api/query/report', {
+        responseType: 'blob',
+      });
+
+      const downloadUrl = window.URL.createObjectURL(new Blob([response.data]));
+      const link = document.createElement('a');
+      link.href = downloadUrl;
+      link.setAttribute('download', 'queries_report.csv');
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+    } catch (error) {
+      toast.error('Error downloading report');
+    }
+  };
 
   return (
-    <div>
-      <h1>Manage Queries</h1>
-      <table>
+    <div className="queries-page">
+      <div className="header">
+        <h1>Manage Queries</h1>
+        <button className="download-btn" onClick={downloadReport}>Download Report</button>
+      </div>
+      
+      <table className="queries-table">
         <thead>
           <tr>
             <th>Name</th>
@@ -40,7 +63,7 @@ const QueriesPage = ({url}) => {
               <td>{query.message}</td>
               <td>
                 <Link to={`/reply/${query._id}`}>
-                  <button>Reply</button>
+                  <button className="reply-btn">Reply</button>
                 </Link>
               </td>
             </tr>

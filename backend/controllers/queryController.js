@@ -1,5 +1,6 @@
 import queryModel from '../models/QueryModel.js' 
 import nodemailer from 'nodemailer';
+import { Parser } from 'json2csv';
 
 export const submitQuery = async (req, res) => {
   const { name, email, message } = req.body; 
@@ -70,6 +71,35 @@ export const getQueryById = async (req, res) => {
     res.json({ success: true, data: query });
   } catch (error) {
     res.status(500).json({ success: false, message: 'Server Error' });
+  }
+};
+
+
+export const generateQueryReport = async (req, res) => {
+  try {
+    const queries = await queryModel.find();
+    if (!queries || queries.length === 0) {
+      return res.status(404).json({ message: 'No queries found' });
+    }
+   
+    const transformedQueries = queries.map(query => ({
+      name: query.name,
+      email: query.email,
+      message: query.message,
+      dateSubmitted: new Date(query.createdAt).toLocaleDateString(), 
+    }));
+
+    
+    const parser = new Parser();
+    const csv = parser.parse(transformedQueries);
+
+    // Set headers for file attachment
+    res.header('Content-Type', 'text/csv');
+    res.attachment('queries_report.csv');
+    res.send(csv);
+  } catch (error) {
+    console.error('Error generating query report:', error);
+    res.status(500).json({ error: 'An error occurred while generating the report' });
   }
 };
 
